@@ -420,6 +420,10 @@ body.dark-mode .hero-progress-label span:last-child { color: #6bb4ff; }
 .mini-accordion:hover { background-color: #f5f5f5; }
 .mini-accordion .arrow { float: right; transition: transform 0.3s ease; }
 .mini-accordion.active .arrow { transform: rotate(90deg); }
+.mini-accordion.active {
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 0;
+}
 
 /* Accordéon Prolongement(s) possible (niveau chapitre, comme EXG/ActG) */
 .sequence-prolongement {
@@ -442,19 +446,22 @@ body.dark-mode .hero-progress-label span:last-child { color: #6bb4ff; }
 .sequence-prolongement .mini-panel {
   border-radius: 0 0 8px 8px;
   border-top: none;
+  margin-top: 0;
 }
-	
+
 .mini-panel {
   display: none;
   padding: 8px 10px;
   background-color: #fafafa;
   border: 1px solid #ddd;
+  border-top: none;
   border-radius: 0 0 6px 6px;
+  margin-top: -8px;
   margin-bottom: 6px;
   font-size: 0.85rem;
   color: #444;
 }
-	
+
 /* --------- Liens d'activités (DOCUMENT) --------- */
 .sequence-links { margin-top: 2px; }
 .sequence-links a {
