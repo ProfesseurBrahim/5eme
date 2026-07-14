@@ -421,6 +421,29 @@ body.dark-mode .hero-progress-label span:last-child { color: #6bb4ff; }
 .mini-accordion .arrow { float: right; transition: transform 0.3s ease; }
 .mini-accordion.active .arrow { transform: rotate(90deg); }
 
+/* Accordéon Prolongement(s) possible (niveau chapitre, comme EXG/ActG) */
+.sequence-prolongement {
+  max-width: 900px;
+  margin: 0 auto 4px auto;
+}
+.sequence-prolongement .mini-accordion {
+  background-color: #222;
+  color: #fff;
+  border-color: #222;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+}
+.sequence-prolongement .mini-accordion:hover { background-color: #3a3a3a; }
+.sequence-prolongement .mini-accordion .arrow { color: #fff; }
+.sequence-prolongement .mini-accordion.active {
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 0;
+}
+.sequence-prolongement .mini-panel {
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+}
+	
 .mini-panel {
   display: none;
   padding: 8px 10px;
@@ -431,7 +454,7 @@ body.dark-mode .hero-progress-label span:last-child { color: #6bb4ff; }
   font-size: 0.85rem;
   color: #444;
 }
-
+	
 /* --------- Liens d'activités (DOCUMENT) --------- */
 .sequence-links { margin-top: 2px; }
 .sequence-links a {
@@ -1437,6 +1460,8 @@ body.dark-mode .chap-arr { color: #9fb3cc; }
 
 body.dark-mode .mini-accordion { background-color: #1c2436; border-color: #3a4d6b; color: #eaf3ff; }
 body.dark-mode .mini-accordion:hover { background-color: #26314a; }
+body.dark-mode .sequence-prolongement .mini-accordion { background-color: #000; border-color: #444; color: #fff; }
+body.dark-mode .sequence-prolongement .mini-accordion:hover { background-color: #2a2a2a; }
 body.dark-mode .mini-panel { background-color: #141a28; border-color: #3a4d6b; color: #cdd8ea; }
 body.dark-mode .sequence-card,
 body.dark-mode .mental-card {
@@ -2185,6 +2210,15 @@ Nombres premiers inférieurs ou égaux à 30 et décomposition en produit de fac
 </div>
 </div>
 </div>
+
+<div class="sequence-prolongement">
+<button class="mini-accordion">Prolongements possibles, mises en perspective historiques et culturelles.<span class="arrow">▶</span></button>
+<div class="mini-panel">
+• Notion de nombre premier ; existence d’une infinité de nombres premiers ; crible d’Ératosthène.
+<div class="sequence-links">
+<a href="" target="_blank">Activité à créer</a>
+</div></div></div>
+	
 </div></section>
 
 <!-- Séquence 8 -->
