@@ -462,6 +462,18 @@ body.dark-mode .hero-progress-label span:last-child { color: #6bb4ff; }
   font-size: 0.85rem;
   padding: 6px 10px;
   text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
+.sequence-calcul-mental .mini-accordion .arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sequence-calcul-mental .mini-accordion.active .arrow {
+  transform: translateY(-50%) rotate(90deg);
 }
 .sequence-calcul-mental .mini-accordion:hover { filter: brightness(1.08); }
 .sequence-calcul-mental .mini-accordion .arrow { color: #fff; }
@@ -705,7 +717,9 @@ body.dark-mode .sequence-calcul-mental .mini-panel {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
+.sequence-linksCours a.cours-main-link { padding-right: 62px; }
       
 .sequence-linksCours a {
   position: relative;
@@ -733,6 +747,44 @@ body.dark-mode .sequence-calcul-mental .mini-panel {
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 4l4 4h-4V4zM8 9h6v2H8V9zm0 4h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>') no-repeat center/contain;
           mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 4l4 4h-4V4zM8 9h6v2H8V9zm0 4h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>') no-repeat center/contain;
   opacity: 0.95;
+  pointer-events: none;
+}
+
+/* Bouton "Latex" à droite du bouton Cours, effet matrix conservé */
+.sequence-linksCours .latex-cours-btn {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 24px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #444;
+  border: 1px solid #444;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s;
+}
+.sequence-linksCours .latex-cours-btn:hover { background: #222; }
+.sequence-linksCours .latex-cours-btn span {
+  position: relative;
+  z-index: 1;
+  font-size: 0.62rem;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+.sequence-linksCours .latex-cours-btn canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -1687,7 +1739,7 @@ body.dark-mode .mindmap-wrap {
 <!-- Séquence 1 -->
 <section class="chapter"><button class="chap-btn"><span class="chap-num">01</span><div class="chap-info"><div class="chap-name">Enchainer des opérations</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
 	  <div class="sequence-linksCours">
-        <a href="Cours/Chapitre 1 - Calcul numérique.pdf" target="_blank">Cours</a>
+        <a class="cours-main-link" href="Cours/Chapitre 1 - Calcul numérique.pdf" target="_blank">Cours</a><a class="latex-cours-btn" href="https://fr.overleaf.com/read/vntkppydsyxx#a4665d" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>
       </div>
 <div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
@@ -1819,7 +1871,7 @@ On passe de plusieurs opérations successives à l’utilisation d’une seule e
 <!-- Séquence 2 -->
 <section class="chapter red"><button class="chap-btn"><span class="chap-num">02</span><div class="chap-info"><div class="chap-name">Symétrie centrale</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
 <div class="sequence-linksCours">
-        <a href="" target="_blank">Cours</a>
+        <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://fr.overleaf.com/read/gmvktsgtcmvn#b0e63b" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>
       </div>
 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
@@ -1872,13 +1924,20 @@ On passe de plusieurs opérations successives à l’utilisation d’une seule e
 <a href="" target="_blank">Activité à créer</a>
 </div></div></div>
 	
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 
 <!-- Séquence 3 -->
 <section class="chapter"><button class="chap-btn"><span class="chap-num">03</span><div class="chap-info"><div class="chap-name">Puissances</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
 <div class="sequence-linksCours">
-        <a href="" target="_blank">Cours</a>
+        <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>
       </div>
 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
@@ -1957,12 +2016,19 @@ On passe de plusieurs opérations successives à l’utilisation d’une seule e
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <!-- Séquence 4 -->
 <section class="chapter red"><button class="chap-btn"><span class="chap-num">04</span><div class="chap-info"><div class="chap-name">Angles</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
 <div class="sequence-linksCours">
-        <a href="" target="_blank">Cours</a>
+        <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>
       </div>
 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
@@ -2031,6 +2097,13 @@ On passe de plusieurs opérations successives à l’utilisation d’une seule e
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <!-- Bandeau vacances : Toussaint (automne) -->
@@ -2060,7 +2133,7 @@ On passe de plusieurs opérations successives à l’utilisation d’une seule e
 
 <!-- Séquence 5 -->
 <section class="chapter"><button class="chap-btn"><span class="chap-num">05</span><div class="chap-info"><div class="chap-name">Calcul littéral (1)</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	
 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
@@ -2151,12 +2224,19 @@ On passe de plusieurs opérations successives à l’utilisation d’une seule e
 <a href="" target="_blank">Activité à créer</a>
 </div></div></div>
 	
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 
 <!-- Séquence 6 -->
 <section class="chapter red"><button class="chap-btn"><span class="chap-num">06</span><div class="chap-info"><div class="chap-name">Triangles</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -2236,11 +2316,18 @@ Avant toute construction, il est attendu un schéma à main levée.
 <a href="" target="_blank">Activité à créer</a>
 </div></div></div>
 	
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <!-- Séquence 7 -->
 <section class="chapter"><button class="chap-btn"><span class="chap-num">07</span><div class="chap-info"><div class="chap-name">Fractions (1)</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -2357,11 +2444,18 @@ Nombres premiers inférieurs ou égaux à 30 et décomposition en produit de fac
 <a href="" target="_blank">Activité à créer</a>
 </div></div></div>
 	
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <!-- Séquence 8 -->
 <section class="chapter green"><button class="chap-btn"><span class="chap-num">08</span><div class="chap-info"><div class="chap-name">Statistiques</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -2443,6 +2537,13 @@ Nombres premiers inférieurs ou égaux à 30 et décomposition en produit de fac
 <a href="" target="_blank">Activité à créer</a>
 </div></div></div>
 	
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 
@@ -2475,7 +2576,7 @@ Nombres premiers inférieurs ou égaux à 30 et décomposition en produit de fac
 
 <!-- Séquence 9 -->
 <section class="chapter red"><button class="chap-btn"><span class="chap-num">09</span><div class="chap-info"><div class="chap-name">Solides de l'espace</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -2543,12 +2644,19 @@ En 5e, le travail sur les patrons du pavé, prisme, cylindre est donc à accentu
 <a href="" target="_blank">Activité à créer</a>
 </div></div></div>
 	
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 
 <!-- Séquence 10 -->
 <section class="chapter"><button class="chap-btn"><span class="chap-num">10</span><div class="chap-info"><div class="chap-name">Nombres relatifs (1)</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -2657,11 +2765,18 @@ En 5e, le travail sur les patrons du pavé, prisme, cylindre est donc à accentu
 <a href="" target="_blank">Activité à créer</a>
 </div></div></div>
 	
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <!-- Séquence 11 -->
 <section class="chapter red"><button class="chap-btn"><span class="chap-num">11</span><div class="chap-info"><div class="chap-name">Parallélogrammes</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -2727,11 +2842,18 @@ C’est l’occasion de différencier.
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <!-- Séquence 12 -->
 <section class="chapter"><button class="chap-btn"><span class="chap-num">12</span><div class="chap-info"><div class="chap-name">Calcul littéral (2)</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -2802,6 +2924,13 @@ C’est l’occasion de différencier.
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <!-- Bandeau vacances : Noël (hiver) -->
@@ -2829,7 +2958,7 @@ C’est l’occasion de différencier.
 
 <!-- Séquence 13 -->
 <section class="chapter red"><button class="chap-btn"><span class="chap-num">13</span><div class="chap-info"><div class="chap-name">Aires</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -2906,12 +3035,19 @@ C’est l’occasion de différencier.
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 
 <!-- Séquence 14 -->
 <section class="chapter"><button class="chap-btn"><span class="chap-num">14</span><div class="chap-info"><div class="chap-name">Nombres relatifs (2)</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -2982,12 +3118,19 @@ Les nombres relatifs interviennent pour la comparaison additive : pour comparer 
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 
 <!-- Séquence 15 -->
 <section class="chapter violet"><button class="chap-btn"><span class="chap-num">15</span><div class="chap-info"><div class="chap-name">Proportionnalité</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -3049,11 +3192,18 @@ Représentation d’une situation de proportionnalité par un tableau ou un grap
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <!-- Séquence 16 -->
 <section class="chapter"><button class="chap-btn"><span class="chap-num">16</span><div class="chap-info"><div class="chap-name">Fractions (2)</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -3108,6 +3258,13 @@ Les nombres relatifs interviennent pour la comparaison additive : pour comparer 
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <!-- Bandeau vacances : printemps -->
@@ -3133,7 +3290,7 @@ Les nombres relatifs interviennent pour la comparaison additive : pour comparer 
 
 <!-- Séquence 17 -->
 <section class="chapter red"><button class="chap-btn"><span class="chap-num">17</span><div class="chap-info"><div class="chap-name">Volumes</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -3172,11 +3329,18 @@ Un travail de calcul de volume d’assemblages de solides peut être fait.
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <!-- Séquence 18 -->
 <section class="chapter"><button class="chap-btn"><span class="chap-num">18</span><div class="chap-info"><div class="chap-name">Equations</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -3236,11 +3400,18 @@ Un travail de calcul de volume d’assemblages de solides peut être fait.
 <a href="" target="_blank">Activité à créer</a>
 </div></div></div>
 	
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 	
 <!-- Séquence 19 -->
 <section class="chapter green"><button class="chap-btn"><span class="chap-num">19</span><div class="chap-info"><div class="chap-name">Probabilités</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -3316,12 +3487,19 @@ Placer un événement sur une échelle de probabilité aura été vu en 6e.
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 
 <!-- Séquence 20 -->
 <section class="chapter violet"><button class="chap-btn"><span class="chap-num">20</span><div class="chap-info"><div class="chap-name">Fonctions</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
-<div class="sequence-linksCours">         <a href="" target="_blank">Cours</a>       </div> 	<div class="sequence-calcul-mental">
+<div class="sequence-linksCours">         <a class="cours-main-link" href="" target="_blank">Cours</a><a class="latex-cours-btn" href="https://www.latex-project.org/" target="_blank" title="Latex"><canvas class="latex-matrix-canvas"></canvas><span>Latex</span></a>       </div> 	<div class="sequence-calcul-mental">
 <button class="mini-accordion">Calcul mental<span class="arrow">▶</span></button>
 <div class="mini-panel">
 <ol>
@@ -3408,6 +3586,13 @@ Placer un événement sur une échelle de probabilité aura été vu en 6e.
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <!-- Bandeau vacances : été -->
@@ -3493,6 +3678,13 @@ Placer un événement sur une échelle de probabilité aura été vu en 6e.
  
 </div>
 </div>
+
+<div class="sequence-linksEXG">
+<a href="" target="_blank">Exercices</a>
+</div>
+<div class="sequence-linksActG">
+<a href="" target="_blank">Activité</a>
+</div>
 </div></section>
 
 <div class="section-divider"><span>Annexes</span></div>	
@@ -3526,6 +3718,13 @@ Placer un événement sur une échelle de probabilité aura été vu en 6e.
 
     // Empêche l'ouverture du chapitre quand on clique sur un lien dans son titre
     document.querySelectorAll('.chap-btn a').forEach(link => {
+      link.addEventListener('click', function (event) {
+        event.stopPropagation();
+      });
+    });
+
+    // Boutons "Latex" à côté des liens Cours (liens réels vers le site LaTeX)
+    document.querySelectorAll('.latex-cours-btn').forEach(link => {
       link.addEventListener('click', function (event) {
         event.stopPropagation();
       });
@@ -3975,40 +4174,57 @@ createStars();
 randomShootingStars();
 </script>
 <script>
-// === Mini effet Matrix dans le bouton LATEX ===
-const canvas = document.getElementById('latex-matrix');
-const ctx = canvas.getContext('2d');
+// === Mini effet Matrix dans les boutons LATEX (un par bouton "Cours") ===
+(function () {
+  const fontSize = 10;
+  const chars = '01ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾｽﾀ';
+  const instances = [];
 
-function resizeMatrix() {
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-}
-resizeMatrix();
-window.addEventListener('resize', resizeMatrix);
-
-const chars = '01ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾｽﾀ';
-const fontSize = 14;
-let columns = Math.floor(canvas.width / fontSize);
-const drops = Array(columns).fill(1);
-
-function drawMatrix() {
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.3)'; // léger fondu
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = '#0F0';
-  ctx.font = fontSize + 'px monospace';
-
-  for (let i = 0; i < drops.length; i++) {
-    const text = chars.charAt(Math.floor(Math.random() * chars.length));
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-    drops[i]++;
+  function initMatrixCanvas(canvas) {
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.offsetWidth || 72;
+    canvas.height = canvas.offsetHeight || 30;
+    const columns = Math.max(1, Math.floor(canvas.width / fontSize));
+    const drops = Array(columns).fill(1);
+    instances.push({ canvas, ctx, drops, columns });
   }
-}
 
-setInterval(drawMatrix, 50);
+  function resizeAll() {
+    document.querySelectorAll('.latex-matrix-canvas').forEach(canvas => {
+      canvas.width = canvas.offsetWidth || 72;
+      canvas.height = canvas.offsetHeight || 30;
+    });
+    instances.forEach(inst => {
+      inst.columns = Math.max(1, Math.floor(inst.canvas.width / fontSize));
+      inst.drops = Array(inst.columns).fill(1);
+    });
+  }
+
+  function drawMatrix() {
+    instances.forEach(inst => {
+      const { ctx, canvas, drops, columns } = inst;
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.3)'; // léger fondu
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#0F0';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < columns; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    });
+  }
+
+  document.querySelectorAll('.latex-matrix-canvas').forEach(initMatrixCanvas);
+  window.addEventListener('resize', resizeAll);
+  setInterval(drawMatrix, 50);
+})();
 </script>
+
 <script>
 // === 🦋✨ Libellule phosphorescente / néon (mode nuit uniquement, derrière les accordéons) ===
 (function () {
@@ -4578,3 +4794,4 @@ setInterval(drawMatrix, 50);
 </script>
 </body>
 </html>
+
