@@ -123,27 +123,6 @@ h1 {
   background-color: #e9e9e9;
 }
 
-.accordion.white2 {
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  color: #333;
-  padding: 7px 10px;
-  font-size: 14px;
-}
-.accordion.white2:hover {
-  background-color: #e9e9e9;
-}	    
-
-.accordion.multicolor {
-  background: linear-gradient(90deg, #f44336, #ff9800, #ffeb3b, #4caf50, #2196f3, #9c27b0);
-  color: white;
-  font-weight: bold;
-  border: 1px solid #ccc;
-}
-.accordion.multicolor:hover {
-  filter: brightness(1.1);
-}
-
 .num-circle {
   display: inline-block;
   width: 26px;
@@ -297,60 +276,6 @@ body.dark-mode .hero-progress-label span:last-child { color: #6bb4ff; }
 
 /* Les boutons #dark-mode-toggle et #close-accordions-button sont désormais
    stylés comme .nav-btn dans la surcouche navbar (voir plus bas dans ce fichier) */
-
-.mental-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 12px;
-  margin-top: 1px;
-}
-
-.mental-card {
-  background: #fff;
-  border: 1px solid #c8d2e4;
-  border-radius: 10px;
-  padding: 6px 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.95rem;
-  min-width: 0;
-}
-
-.mental-card-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.mental-card-header strong,
-.mental-card-header small {
-  overflow-wrap: break-word;
-}
-
-.mental-card small {
-  font-size: 0.75rem;
-  color: #555;
-}
-
-.mental-card a {
-  background: #8dbbe6;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 0.8rem;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.3s;
-}
-
-.mental-card a:hover {
-  background: #6ba5d8;
-}
 
 /* === STYLE CARTES POUR LES SEQUENCES === */
 .sequence-grid {
@@ -575,63 +500,6 @@ body.dark-mode .sequence-calcul-mental .num-circle {
   pointer-events: none;
 }
 
-/* --------- Liens YouTube --------- */
-.sequence-linksYT a {
-  position: relative;
-  display: block;
-  background: #FFA07A;
-  color: white;
-  padding: 6px 10px 6px 42px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-.sequence-linksYT a:hover { background: #FA8072; }
-.sequence-linksYT a::before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 22px;
-  height: 16px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 16'%3E%3Crect x='0' y='0' width='24' height='16' rx='3' ry='3' fill='%23FF0000'/%3E%3Cpolygon points='10,4 16,8 10,12' fill='%23FFFFFF'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
-
-/* --------- Liens Exercices --------- */
-.sequence-linksEXE a {
-  position: relative;
-  display: block;
-  background: #6FCF97;
-  color: white;
-  padding: 6px 10px 6px 34px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-.sequence-linksEXE a:hover { background: #57C47F; }
-.sequence-linksEXE a::before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  background-color: currentColor;
-  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="8" width="2" height="8"/><rect x="4" y="7" width="2" height="10"/><rect x="6" y="10" width="12" height="4"/><rect x="18" y="7" width="2" height="10"/><rect x="20" y="8" width="2" height="8"/></svg>') no-repeat center/contain;
-          mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="8" width="2" height="8"/><rect x="4" y="7" width="2" height="10"/><rect x="6" y="10" width="12" height="4"/><rect x="18" y="7" width="2" height="10"/><rect x="20" y="8" width="2" height="8"/></svg>') no-repeat center/contain;
-  opacity: 0.95;
-  pointer-events: none;
-}
-
 /* --------- Liens Évaluations --------- */
 .sequence-linksEVAL { 
   display: flex;
@@ -710,65 +578,14 @@ body.dark-mode .sequence-calcul-mental .num-circle {
   pointer-events: none;
 }
 
-.sequence-linksEVALV { 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 8px;
-  justify-content: center;   /* centre la grille */
-  max-width: 900px;
-  margin: 0 auto 4px auto;   /* centre horizontalement */
-}
-      
-.sequence-linksEVALV a {
-  position: relative;
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
-  border-radius: 6px;
-  padding: 6px 10px 6px 72px;
-  background: linear-gradient(90deg,
-    rgba(229,57,53,0.82) 0%,
-    rgba(251,140,0,0.82) 50%,
-    rgba(67,160,71,0.82) 100%
-  ) !important;
-  transition: background 0.25s ease;
-}
-.sequence-linksEVALV a:hover {
-  background: linear-gradient(90deg,
-    #c62828 0%,
-    #ef6c00 50%,
-    #2e7d32 100%
-  ) !important;
-}
-.sequence-linksEVALV a::before {
-  content: "";
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  background-color: currentColor;
-  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="18" rx="2" ry="2"/><rect x="9" y="2" width="6" height="4" rx="1" ry="1"/><rect x="8" y="9" width="8" height="2"/><rect x="8" y="13" width="8" height="2"/><rect x="8" y="17" width="8" height="2"/></svg>') no-repeat center/contain;
-          mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="18" rx="2" ry="2"/><rect x="9" y="2" width="6" height="4" rx="1" ry="1"/><rect x="8" y="9" width="8" height="2"/><rect x="8" y="13" width="8" height="2"/><rect x="8" y="17" width="8" height="2"/></svg>') no-repeat center/contain;
-  opacity: 0.95;
-  pointer-events: none;
-}
-
 /* Layout responsive des blocs de liens */
-.sequence-links,
-.sequence-linksYT,
-.sequence-linksEXE {
+.sequence-links {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 8px;
   width: 100%;
 }
-.sequence-links a,
-.sequence-linksYT a,
-.sequence-linksEXE a {
+.sequence-links a {
   text-align: center;
 }
 
@@ -979,21 +796,7 @@ body.dark-mode .sequence-calcul-mental .num-circle {
   opacity: 0.95;
   pointer-events: none;
 }
-.sequence-linksEXE a:hover { background: #57C47F; }
-.sequence-linksEXE a::before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  background-color: currentColor;
-  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="8" width="2" height="8"/><rect x="4" y="7" width="2" height="10"/><rect x="6" y="10" width="12" height="4"/><rect x="18" y="7" width="2" height="10"/><rect x="20" y="8" width="2" height="8"/></svg>') no-repeat center/contain;
-          mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="8" width="2" height="8"/><rect x="4" y="7" width="2" height="10"/><rect x="6" y="10" width="12" height="4"/><rect x="18" y="7" width="2" height="10"/><rect x="20" y="8" width="2" height="8"/></svg>') no-repeat center/contain;
-  opacity: 0.95;
-  pointer-events: none;
-}
+
 
 /* Bouton "Correction" */
 .sequence-linksEVAL a.correction-btn {
@@ -1249,7 +1052,6 @@ body:not(.dark-mode) .cloud {
   gap: 18px;
   min-width: 0;
 }
-.nav-title-block { text-align: center; white-space: nowrap; }
 
 .nav-section-links {
   display: flex;
@@ -1326,24 +1128,6 @@ body.dark-mode .nav-seclink:hover { background-color: rgba(107, 165, 216, 0.3); 
 }
 .nav-link-active:hover { background-color: #1a1a1a; }
 
-.nav-title {
-  font-size: 1.25rem;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  color: #1a1a1a;
-  display: block;
-  line-height: 1.15;
-}
-.nav-sub {
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #4a5a72;
-  display: block;
-  margin-top: 2px;
-}
-.nav-sub a { color: #4a5a72; }
-
 .nav-btn {
   background: #444;
   color: #fff;
@@ -1396,8 +1180,6 @@ body.dark-mode #nav {
   background: rgba(10, 10, 20, 0.9);
   border-bottom: 2px solid #6ba5d8;
 }
-body.dark-mode .nav-title { color: #eaf3ff; }
-body.dark-mode .nav-sub, body.dark-mode .nav-sub a { color: #9fb3cc; }
 body.dark-mode .nav-link {
   background-color: #1c2436;
   border-color: #3a4d6b;
@@ -1584,22 +1366,6 @@ body.dark-mode .section-divider span { color: #9fb3cc; }
 .chapter.white.open .chap-btn { background-color: #e9e9e9; box-shadow: inset 4px 0 0 #bbb; }
 .chapter.white .chap-num { color: #999; }
 .chapter.white .chap-body { border-color: #bbb; }
-
-.chapter.white2 .chap-btn { background-color: #f9f9f9; border-color: #ccc; color: #333; padding: 3px 20px; font-size: 15px; }
-.chapter.white2 .chap-btn:hover { background-color: #e9e9e9; }
-.chapter.white2.open .chap-btn { background-color: #e9e9e9; box-shadow: inset 4px 0 0 #bbb; }
-.chapter.white2 .chap-body { border-color: #bbb; }
-
-.chapter.multicolor .chap-btn {
-  background: linear-gradient(90deg, #f44336, #ff9800, #ffeb3b, #4caf50, #2196f3, #9c27b0);
-  color: white;
-  font-weight: bold;
-  border-color: #ccc;
-}
-.chapter.multicolor .chap-btn:hover { filter: brightness(1.1); }
-.chapter.multicolor.open .chap-btn { filter: brightness(1.05); box-shadow: inset 4px 0 0 rgba(0,0,0,0.25); }
-.chapter.multicolor .chap-num { color: rgba(255,255,255,0.85); }
-.chapter.multicolor .chap-body { border-color: #ccc; }
 
 /* ============================================================
    Bandeaux de vacances (même forme que .chap-btn, décor saisonnier)
@@ -1834,8 +1600,7 @@ body.dark-mode .mini-accordion:hover { background-color: #26314a; }
 body.dark-mode .sequence-prolongement .mini-accordion { background-color: #6b6b6b; border-color: #6b6b6b; color: #fff; }
 body.dark-mode .sequence-prolongement .mini-accordion:hover { background-color: #7a7a7a; }
 body.dark-mode .mini-panel { background-color: #141a28; border-color: #3a4d6b; color: #cdd8ea; }
-body.dark-mode .sequence-card,
-body.dark-mode .mental-card {
+body.dark-mode .sequence-card {
   background-color: #1c2436;
   border-color: #3a4d6b;
   color: #eaf3ff;
@@ -1863,27 +1628,15 @@ body.dark-mode .chapter.green.open .chap-btn { background-color: #234030; box-sh
 body.dark-mode .chapter.green .chap-num { color: #8fdba3; }
 body.dark-mode .chapter.green .chap-body { background-color: #141a28; border-color: #3f7a52; }
 
-body.dark-mode .chapter.white .chap-btn,
-body.dark-mode .chapter.white2 .chap-btn {
+body.dark-mode .chapter.white .chap-btn {
   background-color: #1c2436; border-color: #3a4d6b; color: #eaf3ff;
 }
-body.dark-mode .chapter.white .chap-btn:hover,
-body.dark-mode .chapter.white2 .chap-btn:hover { background-color: #26314a; }
-body.dark-mode .chapter.white.open .chap-btn,
-body.dark-mode .chapter.white2.open .chap-btn { background-color: #26314a; box-shadow: inset 4px 0 0 #3a4d6b; }
-body.dark-mode .chapter.white .chap-num,
-body.dark-mode .chapter.white2 .chap-num { color: #9fb3cc; }
-body.dark-mode .chapter.white .chap-body,
-body.dark-mode .chapter.white2 .chap-body { background-color: #141a28; border-color: #3a4d6b; }
-
-body.dark-mode .chapter.multicolor .chap-btn { filter: brightness(0.8) saturate(0.85); }
-body.dark-mode .chapter.multicolor.open .chap-btn { filter: brightness(0.75) saturate(0.85); }
-body.dark-mode .chapter.multicolor .chap-body { background-color: #141a28; border-color: #555; }
+body.dark-mode .chapter.white .chap-btn:hover { background-color: #26314a; }
+body.dark-mode .chapter.white.open .chap-btn { background-color: #26314a; box-shadow: inset 4px 0 0 #3a4d6b; }
+body.dark-mode .chapter.white .chap-num { color: #9fb3cc; }
+body.dark-mode .chapter.white .chap-body { background-color: #141a28; border-color: #3a4d6b; }
 
 /* --- Cartes / liens à l'intérieur des chapitres en mode nuit --- */
-body.dark-mode .mental-card a { background-color: #3a4d6b; }
-body.dark-mode .mental-card a:hover { background-color: #4a5f85; }
-body.dark-mode .mental-card small { color: #9fb3cc; }
 
 body.dark-mode .sequence-links a,
 body.dark-mode .sequence-linksCours a,
@@ -1894,18 +1647,8 @@ body.dark-mode .sequence-links a:hover,
 body.dark-mode .sequence-linksCours a:hover,
 body.dark-mode .sequence-linksActG a:hover { background: #4a5f85; }
 
-body.dark-mode .sequence-linksEXE a,
 body.dark-mode .sequence-linksEXG a { background: #1f6e46; }
-body.dark-mode .sequence-linksEXE a:hover,
 body.dark-mode .sequence-linksEXG a:hover { background: #278a58; }
-
-body.dark-mode .sequence-linksYT a { background: #a8442c; }
-body.dark-mode .sequence-linksYT a:hover { background: #c25236; }
-
-body.dark-mode .small-link-box {
-  background-color: #1c2436; border-color: #3a4d6b; color: #eaf3ff;
-}
-body.dark-mode .small-link-box:hover { background-color: #26314a; }
 
 /* ===== Carte mentale radiale - Ressources ===== */
 .mindmap-wrap {
@@ -1956,20 +1699,9 @@ body.dark-mode .small-link-box:hover { background-color: #26314a; }
 .mm-line { fill: none; stroke-linecap: round; }
 .mm-line-main { stroke-width: 2.6; }
 .mm-line-leaf { stroke-width: 1.3; opacity: 0.65; }
-.mm-hint {
-  text-align: center;
-  font-size: 12.5px;
-  color: #6b7690;
-  margin: 2px 0 10px 0;
-}
 body.dark-mode .mm-leaf-rect { fill: #1c2436; stroke: #3a4d6b; }
 body.dark-mode .mm-leaf-group:hover .mm-leaf-rect { fill: #26314a; }
 body.dark-mode .mm-leaf-text { fill: #eaf3ff; }
-body.dark-mode .mm-hint { color: #9fb3cc; }
-body.dark-mode .mm-orbit-dark {
-  stroke-dasharray: 3 5;
-  opacity: 0.55;
-}
 body.dark-mode .mindmap-wrap {
   background: transparent;
 }
@@ -4587,10 +4319,10 @@ toggleButton.addEventListener('click', () => {
         catCircle.setAttribute('stroke', cat.color);
         catCircle.setAttribute('stroke-width', '1');
       }
+      catG.appendChild(catCircle);
       const catText = mmEl('text', { x: catX, y: catY, class: 'mm-cat-text' });
       catText.style.fontSize = catFontSize + 'px';
       catText.textContent = cat.title;
-      catG.appendChild(catCircle);
       catG.appendChild(catText);
       catG.addEventListener('click', () => {
         MM_STATE.expanded[cat.title] = !MM_STATE.expanded[cat.title];
