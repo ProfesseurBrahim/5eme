@@ -1912,7 +1912,7 @@ body.dark-mode .mindmap-wrap {
 </div>
 </div>
 <div class="hero-stats">
-<div class="hero-stat"><span class="hero-stat-icon">📘</span><span class="hero-stat-value" id="stat-chapitres">0</span><span class="hero-stat-label">Chapitres</span></div>
+<div class="hero-stat"><span class="hero-stat-icon">📘</span><span class="hero-stat-value" id="stat-chapitres">20</span><span class="hero-stat-label">Chapitres</span></div>
 <div class="hero-stat"><span class="hero-stat-icon">🎯</span><span class="hero-stat-value" id="stat-termines">0</span><span class="hero-stat-label">Terminés</span></div>
 <div class="hero-stat"><span class="hero-stat-icon">🏆</span><span class="hero-stat-value" id="stat-competences">0</span><span class="hero-stat-label">Compétences</span></div>
 <div class="hero-stat"><span class="hero-stat-icon">📋</span><span class="hero-stat-value" id="stat-evaluations">0</span><span class="hero-stat-label">Évaluations</span></div>
@@ -4293,23 +4293,10 @@ toggleButton.addEventListener('click', () => {
       if (label) label.textContent = Math.round(percent) + '%';
     })();
 
-    // Statistiques de la bannière (calculées à partir du contenu de la page)
-    (function updateHeroStats() {
-      const chapCount = document.querySelectorAll('.chapter').length;
-      const compCount = document.querySelectorAll('.mini-accordion').length
-        ? Array.from(document.querySelectorAll('.mini-accordion')).filter(b => b.textContent.trim().startsWith('Compétence')).length
-        : 0;
-      const setStat = (id, value) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = value;
-      };
-      setStat('stat-chapitres', chapCount);
-      setStat('stat-competences', compCount);
-      // "Terminés" et "Évaluations" : pas encore de suivi de progression réel,
-      // à brancher plus tard (ex: cases à cocher sauvegardées) si besoin.
-      setStat('stat-termines', 0);
-      setStat('stat-evaluations', 0);
-    })();
+    // Les statistiques de la bannière (Chapitres, Terminés, Compétences, Évaluations)
+    // sont maintenant écrites à la main directement dans le HTML (voir plus haut,
+    // dans le bloc <div class="hero-stats">). Modifie simplement les nombres
+    // dans les balises <span class="hero-stat-value">...</span> pour les changer.
 
     // Masquer la barre de navigation au scroll vers le bas
     const nav = document.getElementById('nav');
