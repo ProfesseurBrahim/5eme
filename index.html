@@ -5,8 +5,6 @@
 <meta charset="utf-8"/>
 <title>Progression de Mathématiques 5e</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="favicon.png" rel="icon" type="image/png"/>
-<link href="logo.png" rel="apple-touch-icon"/>
 <style>
    /* Fond général de la page */
 body {
@@ -145,67 +143,82 @@ body.dark-mode {
   background: #0a0e1a !important;  /* remplace le dégradé clair */
 }
 
-/* === Bannière de titre (façon maquette) === */
-.hero-banner {
+/* === Zone de titre (hero) — inspirée de la structure du site de référence === */
+.hero-section {
   position: relative;
-  max-width: 760px;
-  margin: 14px auto 34px auto;
-  padding: 22px 30px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #eaf3ff, #f3ecff);
-  box-shadow: 0 8px 24px rgba(33, 60, 120, 0.10);
-  overflow: hidden;
+  text-align: center;
+  max-width: 700px;
+  margin: 10px auto 70px auto;
+  padding: 0 20px;
 }
-.hero-banner-top {
-  display: flex;
+.hero-tag {
+  display: inline-flex;
   align-items: center;
-  gap: 20px;
-}
-.hero-logo {
-  flex-shrink: 0;
-  width: 62px;
-  height: 62px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.hero-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-.hero-banner-text { flex: 1; min-width: 0; }
-.hero-banner-title {
-  font-size: clamp(20px, 3.4vw, 26px);
-  font-weight: 800;
-  color: #16244a;
-  margin: 0 0 10px 0;
-  line-height: 1.2;
-}
-.hero-banner-progress-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.hero-banner-progress-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  gap: 10px;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  color: #2196f3;
   text-transform: uppercase;
-  color: #6b7690;
-  white-space: nowrap;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
-.hero-banner-track {
-  flex: 1;
-  height: 9px;
+.hero-tag::before, .hero-tag::after {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+.hero-title {
+  font-size: clamp(36px, 7vw, 54px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 auto 28px auto;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  max-width: none;
+  background-image: linear-gradient(100deg, #2196f3 0%, #0d1b3e 45%, #9c27b0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-subtitle {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #555;
+  max-width: 520px;
+  margin: 0 auto 28px auto;
+}
+.progress-strip {
+  max-width: 520px;
+  margin: 0 auto;
+}
+.hero-progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #5a6478;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.hero-progress-label span:last-child {
+  color: #2196f3;
+  font-weight: 800;
+}
+.hero-progressbar {
+  width: 100%;
+  height: 8px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
+  background: #e0e6f0;
   overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
 }
-.hero-banner-fill {
+.hero-progressbar-fill {
   height: 100%;
   width: 0%;
   border-radius: 999px;
@@ -228,59 +241,21 @@ body.dark-mode {
   from { background-position: 28px 0, 0 0; }
   to { background-position: 0 0, 0 0; }
 }
-.hero-banner-percent {
-  font-size: 15px;
-  font-weight: 800;
-  color: #9c27b0;
-  white-space: nowrap;
-}
 
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-top: 18px;
+body.dark-mode .hero-tag { color: #6bb4ff; }
+body.dark-mode .hero-title {
+  background: linear-gradient(100deg, #6bb4ff 0%, #ffffff 45%, #c98bff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-.hero-stat {
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 14px;
-  padding: 10px 6px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-.hero-stat-icon { font-size: 16px; }
-.hero-stat-value {
-  font-size: 17px;
-  font-weight: 800;
-  color: #16244a;
-}
-.hero-stat-label {
-  font-size: 10.5px;
-  font-weight: 600;
-  color: #6b7690;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
+body.dark-mode .hero-subtitle { color: #b7c0d8; }
+body.dark-mode .hero-progressbar { background: rgba(255, 255, 255, 0.15); }
+body.dark-mode .hero-progress-label { color: #aab4d0; }
+body.dark-mode .hero-progress-label span:last-child { color: #6bb4ff; }
 
-body.dark-mode .hero-banner {
-  background: linear-gradient(135deg, #10162e, #0a0e1f);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-}
-
-body.dark-mode .hero-banner-title { color: #ffffff; }
-body.dark-mode .hero-banner-progress-label { color: #aab4d0; }
-body.dark-mode .hero-banner-track { background: rgba(255, 255, 255, 0.12); }
-body.dark-mode .hero-banner-percent { color: #c98bff; }
-body.dark-mode .hero-stat { background: rgba(255, 255, 255, 0.06); }
-body.dark-mode .hero-stat-value { color: #eaf3ff; }
-body.dark-mode .hero-stat-label { color: #93a3c4; }
-
-@media (max-width: 560px) {
-  .hero-banner { padding: 18px 16px; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 600px) {
+  .hero-section { padding: 0 12px; }
 }
 
 /* Les boutons #dark-mode-toggle et #close-accordions-button sont désormais
@@ -1077,25 +1052,14 @@ body:not(.dark-mode) .cloud {
   flex-shrink: 0;
   width: 36px;
   height: 36px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  background: linear-gradient(135deg, #2196f3, #9c27b0);
+  box-shadow: 0 2px 8px rgba(33,150,243,0.35);
 }
 .nav-brand-icon svg { width: 20px; height: 20px; stroke: #fff; }
-.nav-brand-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
-
-/* Bascule jour/nuit du logo : deux images superposées au même endroit, une seule visible à la fois */
-.nav-brand-icon .logo-light,
-.nav-brand-icon .logo-dark,
-.hero-logo .logo-light,
-.hero-logo .logo-dark {
-  position: absolute;
-  top: 0; left: 0;
-}
-.logo-dark { display: none; }
-body.dark-mode .logo-light { display: none; }
-body.dark-mode .logo-dark { display: block; }
 .nav-brand-text { display: flex; flex-direction: column; line-height: 1.15; }
 .nav-brand-title {
   font-size: 0.95rem;
@@ -1858,15 +1822,13 @@ body.dark-mode .mindmap-wrap {
   background: transparent;
 }
   </style>
-
 </head>
 
 <body>
 <nav id="nav">
 <a class="nav-brand" href="#section-progression">
 <span class="nav-brand-icon">
-<img alt="Logo" class="logo-light" src="logo.png"/>
-<img alt="Logo" class="logo-dark" src="logo-dark.png"/>
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M4 4h16v16H4z" opacity="0"></path><path d="M6 16l4-8 3 5 2-3 3 6"></path><circle cx="6" cy="16" r="1.2" fill="currentColor" stroke="none"></circle></svg>
 </span>
 <span class="nav-brand-text">
 <span class="nav-brand-title">M. Brahim</span>
@@ -1896,29 +1858,17 @@ body.dark-mode .mindmap-wrap {
 <button class="nav-btn" id="dark-mode-toggle" title="Mode jour / nuit">🌙</button>
 </div>
 <main>
-<div class="hero-banner" id="section-progression">
-<div class="hero-banner-top">
-<div class="hero-logo">
-<img alt="Logo" class="logo-light" src="logo.png" style="object-fit:contain;object-position:center;display:block;"/>
-<img alt="Logo" class="logo-dark" src="logo-dark.png" style="object-fit:contain;object-position:center;display:block;"/>
+<div class="hero-section" id="section-progression">
+<div class="hero-tag">Progression annuelle</div>
+<h1 class="hero-title">Classe de cinquième</h1>
+<div class="progress-strip">
+<div class="hero-progress-label">
+<span>Progression de l'année scolaire</span>
+<span id="school-year-percent">0%</span>
 </div>
-<div class="hero-banner-text">
-<div class="hero-banner-title">Mathématiques &ndash; Cinquième</div>
-<div class="hero-banner-progress-row">
-<span class="hero-banner-progress-label">Progression</span>
-<div class="hero-banner-track"><div class="hero-banner-fill" id="school-year-progress"></div></div>
-<span class="hero-banner-percent" id="school-year-percent">0%</span>
+<div class="hero-progressbar"><div class="hero-progressbar-fill" id="school-year-progress"></div></div>
 </div>
 </div>
-</div>
-<div class="hero-stats">
-<div class="hero-stat"><span class="hero-stat-icon">📘</span><span class="hero-stat-value" id="stat-chapitres">20</span><span class="hero-stat-label">Chapitres</span></div>
-<div class="hero-stat"><span class="hero-stat-icon">🎯</span><span class="hero-stat-value" id="stat-termines">0</span><span class="hero-stat-label">Terminés</span></div>
-<div class="hero-stat"><span class="hero-stat-icon">🏆</span><span class="hero-stat-value" id="stat-competences">107</span><span class="hero-stat-label">Compétences</span></div>
-<div class="hero-stat"><span class="hero-stat-icon">📋</span><span class="hero-stat-value" id="stat-evaluations">0</span><span class="hero-stat-label">Évaluations</span></div>
-</div>
-</div>
-
 	
 <!-- Séquence 1 -->
 <section class="chapter"><button class="chap-btn"><span class="chap-num">01</span><div class="chap-info"><div class="chap-name">Enchainer des opérations</div></div><span class="chap-arr">▶</span></button><div class="chap-body">
@@ -4292,11 +4242,6 @@ toggleButton.addEventListener('click', () => {
       const label = document.getElementById('school-year-percent');
       if (label) label.textContent = Math.round(percent) + '%';
     })();
-
-    // Les statistiques de la bannière (Chapitres, Terminés, Compétences, Évaluations)
-    // sont maintenant écrites à la main directement dans le HTML (voir plus haut,
-    // dans le bloc <div class="hero-stats">). Modifie simplement les nombres
-    // dans les balises <span class="hero-stat-value">...</span> pour les changer.
 
     // Masquer la barre de navigation au scroll vers le bas
     const nav = document.getElementById('nav');
