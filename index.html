@@ -4,6 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <title>Progression de Mathématiques 5e</title>
+<link rel="icon" href="favicon.png" type="image/png"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <style>
    /* Fond général de la page */
@@ -1056,10 +1057,12 @@ body:not(.dark-mode) .cloud {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #2196f3, #9c27b0);
-  box-shadow: 0 2px 8px rgba(33,150,243,0.35);
+  overflow: hidden;
 }
-.nav-brand-icon svg { width: 20px; height: 20px; stroke: #fff; }
+.nav-brand-icon img { width: 100%; height: 100%; object-fit: contain; }
+.nav-brand-icon .logo-dark { display: none; }
+body.dark-mode .nav-brand-icon .logo-light { display: none; }
+body.dark-mode .nav-brand-icon .logo-dark { display: block; }
 .nav-brand-text { display: flex; flex-direction: column; line-height: 1.15; }
 .nav-brand-title {
   font-size: 0.95rem;
@@ -1828,7 +1831,8 @@ body.dark-mode .mindmap-wrap {
 <nav id="nav">
 <a class="nav-brand" href="#section-progression">
 <span class="nav-brand-icon">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M4 4h16v16H4z" opacity="0"></path><path d="M6 16l4-8 3 5 2-3 3 6"></path><circle cx="6" cy="16" r="1.2" fill="currentColor" stroke="none"></circle></svg>
+<img class="logo-light" src="logo.png" alt="Logo M. Brahim"/>
+<img class="logo-dark" src="logo-dark.png" alt="Logo M. Brahim"/>
 </span>
 <span class="nav-brand-text">
 <span class="nav-brand-title">M. Brahim</span>
