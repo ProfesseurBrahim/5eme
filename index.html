@@ -3,7 +3,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8"/>
-<title>Progression de Mathématiques 5e</title>
+<title>Progression de Mathématiques 4e</title>
 <link rel="icon" href="favicon.png" type="image/png" media="(prefers-color-scheme: light)"/>
 <link rel="icon" href="logo-dark.png" type="image/png" media="(prefers-color-scheme: dark)"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -1182,7 +1182,6 @@ body.dark-mode .nav-seclink.is-active { color: #eaf3ff; }
 }
 @media (max-width: 700px) {
   .nav-side.nav-grades { min-width: 0; }
-  .nav-side.nav-grades .nav-link:not(.nav-link-active) { display: none; }
 }
 
 .nav-link {
@@ -1825,7 +1824,50 @@ body.dark-mode .mm-leaf-text { fill: #eaf3ff; }
 body.dark-mode .mindmap-wrap {
   background: transparent;
 }
+
+/* ============================================================
+   AJUSTEMENTS MOBILE (ajoutés — n'affectent que les écrans
+   étroits, aucune règle desktop existante n'est modifiée)
+   ============================================================ */
+@media (max-width: 600px) {
+  /* Marges générales resserrées pour laisser plus de place au contenu */
+  body { margin: 10px; }
+  main { padding: 70px 6px 60px; }
+
+  /* Le footer compense les marges du body avec des marges négatives :
+     on les réaligne sur la nouvelle marge de 10px pour éviter tout
+     débordement horizontal (scroll latéral) sur téléphone. */
+  #site-footer {
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
+    width: calc(100% + 20px);
+    padding: 24px 16px 20px;
+  }
+  .footer-block { min-width: 0; flex-basis: 100%; }
+
+  /* Barre de nav : un peu moins large pour ne pas serrer les pilules */
+  #nav { padding: 0 10px; gap: 10px; }
+
+  /* Titres et textes du hero légèrement resserrés */
+  .hero-section { margin: 6px auto 44px auto; }
+  .hero-subtitle { font-size: 13.5px; }
+
+  /* Grille de séquences : une seule colonne bien lisible */
+  .sequence-grid { grid-template-columns: 1fr; }
+
+  /* Réafficher les liens 6e/5e/4e/3e (masqués par la règle @700px
+     qui ne gardait que le niveau actif) et les resserrer un peu
+     pour qu'ils tiennent tous sur un petit écran. */
+  .nav-side.nav-grades .nav-link:not(.nav-link-active) { display: inline-flex; }
+  .nav-grades { gap: 2px; padding: 4px; }
+  .nav-grades .nav-link { padding: 0 7px; font-size: 0.68rem; height: 26px; }
+
+  /* Cartes et accordéons : padding réduit pour éviter tout débordement */
+  .accordion { padding-left: 12px; padding-right: 12px; }
+}
   </style>
+
 </head>
 
 <body>
