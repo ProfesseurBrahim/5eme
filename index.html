@@ -1260,6 +1260,110 @@ body.dark-mode #floating-toolbar {
   #floating-toolbar .nav-btn { width: 30px; height: 30px; font-size: 0.8rem; }
 }
 
+/* ============================================================
+   Panneau de progression du remplissage (Cours/Activités/etc.)
+   ============================================================ */
+#docs-progress-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 26, 40, 0.55);
+  backdrop-filter: blur(6px);
+  padding: 20px;
+}
+#docs-progress-overlay.is-open { display: flex; }
+#docs-progress-panel {
+  width: 100%;
+  max-width: 440px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #f4f8ff;
+  border: 2px solid #8dbbe6;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+.docs-progress-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-bottom: 1px solid #c7d7ec;
+  flex-shrink: 0;
+}
+.docs-progress-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+#docs-progress-close {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: rgba(33, 150, 243, 0.12);
+  border: none;
+  color: #1a1a1a;
+  cursor: pointer;
+  font-size: 0.8rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+#docs-progress-close:hover { background: rgba(33, 150, 243, 0.28); }
+.docs-progress-body { padding: 16px 18px 18px; overflow-y: auto; }
+.docs-progress-list { display: flex; flex-direction: column; gap: 14px; }
+.docs-progress-row { display: flex; flex-direction: column; gap: 6px; }
+.docs-progress-row-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.docs-progress-row-label { font-size: 0.85rem; font-weight: 700; color: #1a1a1a; }
+.docs-progress-row-count { font-size: 0.72rem; color: #5a6478; font-weight: 600; }
+.docs-progress-row-pct { font-size: 0.8rem; font-weight: 800; color: #2196f3; }
+.docs-progress-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: #e0e6f0;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+}
+.docs-progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  width: 0%;
+  background: linear-gradient(90deg, #2196f3, #9c27b0);
+  transition: width 0.6s ease;
+}
+.docs-progress-total {
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid #c7d7ec;
+}
+.docs-progress-total .docs-progress-row-label { color: #9c27b0; }
+.docs-progress-total .docs-progress-row-pct { color: #9c27b0; }
+
+body.dark-mode #docs-progress-panel {
+  background: #10131f;
+  border-color: #6ba5d8;
+}
+body.dark-mode .docs-progress-head { border-bottom-color: #2a3350; }
+body.dark-mode .docs-progress-head h3 { color: #eaf3ff; }
+body.dark-mode #docs-progress-close { background: rgba(107, 180, 255, 0.15); color: #eaf3ff; }
+body.dark-mode #docs-progress-close:hover { background: rgba(107, 180, 255, 0.3); }
+body.dark-mode .docs-progress-row-label { color: #eaf3ff; }
+body.dark-mode .docs-progress-row-count { color: #aab4d0; }
+body.dark-mode .docs-progress-row-pct { color: #6bb4ff; }
+body.dark-mode .docs-progress-bar { background: rgba(255,255,255,0.15); }
+body.dark-mode .docs-progress-total { border-top-color: #2a3350; }
+body.dark-mode .docs-progress-total .docs-progress-row-label,
+body.dark-mode .docs-progress-total .docs-progress-row-pct { color: #c98bff; }
+
 /* Bouton LaTeX avec effet matrix conservé, adapté en pilule de nav */
 #latex-button.nav-link {
   position: relative;
@@ -1450,6 +1554,23 @@ body.dark-mode .section-divider span { color: #9fb3cc; }
   flex-shrink: 0;
 }
 .chapter.open .chap-arr { transform: rotate(90deg); }
+
+.chap-fill-pct {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #6ba5d8;
+  opacity: 0.55;
+  flex-shrink: 0;
+  margin-right: 10px;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.chapter.red .chap-fill-pct { color: #d67e7e; }
+.chapter.violet .chap-fill-pct { color: #a98fdb; }
+.chapter.green .chap-fill-pct { color: #7fc27f; }
+.chapter.white .chap-fill-pct { color: #999; }
+
+body.dark-mode .chap-fill-pct { opacity: 0.45; }
 
 .chap-body {
   display: none;
@@ -1753,6 +1874,10 @@ body.dark-mode .chapter.white .chap-btn {
 body.dark-mode .chapter.white .chap-btn:hover { background-color: #26314a; }
 body.dark-mode .chapter.white.open .chap-btn { background-color: #26314a; box-shadow: inset 4px 0 0 #3a4d6b; }
 body.dark-mode .chapter.white .chap-num { color: #9fb3cc; }
+body.dark-mode .chapter.red .chap-fill-pct { color: #e58a97; }
+body.dark-mode .chapter.violet .chap-fill-pct { color: #b3a0f0; }
+body.dark-mode .chapter.green .chap-fill-pct { color: #8fdba3; }
+body.dark-mode .chapter.white .chap-fill-pct { color: #9fb3cc; }
 body.dark-mode .chapter.white .chap-body { background-color: #141a28; border-color: #3a4d6b; }
 
 /* --- Cartes / liens à l'intérieur des chapitres en mode nuit --- */
@@ -1902,8 +2027,21 @@ body.dark-mode .mindmap-wrap {
 
 <div id="floating-toolbar">
 <button id="toggle-animals-button" class="nav-btn" title="Activer/Désactiver les animations">🐟</button>
+<button class="nav-btn" id="docs-progress-button" title="Progression du remplissage">%</button>
 <button class="nav-btn" id="close-accordions-button" title="Fermer tout">⊟</button>
 <button class="nav-btn" id="dark-mode-toggle" title="Mode jour / nuit">🌙</button>
+</div>
+
+<div id="docs-progress-overlay">
+<div id="docs-progress-panel">
+<div class="docs-progress-head">
+<h3>Progression du remplissage</h3>
+<button id="docs-progress-close" aria-label="Fermer">✕</button>
+</div>
+<div class="docs-progress-body" id="docs-progress-body">
+<div class="docs-progress-list" id="docs-progress-list"></div>
+</div>
+</div>
 </div>
 <main>
 <div class="hero-section" id="section-progression">
@@ -4349,6 +4487,133 @@ toggleButton.addEventListener('click', () => {
     })();
 
     renderMindmap();
+
+    // ============================================================
+    // Progression du remplissage (Cours / Activités / Exercices /
+    // Évaluations / Corrections) — un chapitre compte comme "rempli"
+    // s'il possède les 5 éléments.
+    // ============================================================
+    (function initDocsProgress() {
+      const button = document.getElementById('docs-progress-button');
+      const overlay = document.getElementById('docs-progress-overlay');
+      const closeBtn = document.getElementById('docs-progress-close');
+      const listEl = document.getElementById('docs-progress-list');
+      if (!button || !overlay || !listEl) return;
+
+      function hasLink(href) {
+        return !!(href && href.trim() !== '' && href.trim() !== '#');
+      }
+
+      function computeProgress() {
+        const chapters = Array.from(document.querySelectorAll('section.chapter')).filter(section => {
+          const numEl = section.querySelector('.chap-num');
+          const num = numEl ? numEl.textContent.trim() : '';
+          return /^\d+$/.test(num); // on exclut les séquences transversales ("T") et annexes ("+")
+        });
+
+        const categories = {
+          cours:       { label: 'Cours',              count: 0 },
+          activites:   { label: 'Activités',           count: 0 },
+          exercices:   { label: "Fiches d'exercices",  count: 0 },
+          evaluations: { label: 'Évaluations',         count: 0 },
+          corrections: { label: 'Corrections',         count: 0 }
+        };
+        let complets = 0;
+
+        chapters.forEach(section => {
+          const coursOk = hasLink(section.querySelector('.cours-main-link')?.getAttribute('href'));
+          const exerciceOk = hasLink(section.querySelector('.exg-main-link')?.getAttribute('href'));
+          const evalOk = hasLink(section.querySelector('.eval-main-link')?.getAttribute('href'));
+          const correctionOk = hasLink(section.querySelector('.correction-btn')?.getAttribute('href'));
+          const activiteOk = Array.from(section.querySelectorAll('.sequence-linksActG a'))
+            .some(a => hasLink(a.getAttribute('href')));
+
+          if (coursOk) categories.cours.count++;
+          if (activiteOk) categories.activites.count++;
+          if (exerciceOk) categories.exercices.count++;
+          if (evalOk) categories.evaluations.count++;
+          if (correctionOk) categories.corrections.count++;
+          if (coursOk && activiteOk && exerciceOk && evalOk && correctionOk) complets++;
+        });
+
+        return { categories, total: chapters.length, complets };
+      }
+
+      function renderRow(label, present, total, extraClass) {
+        const pct = total > 0 ? Math.round((present / total) * 100) : 0;
+        return `
+          <div class="docs-progress-row${extraClass ? ' ' + extraClass : ''}">
+            <div class="docs-progress-row-top">
+              <span class="docs-progress-row-label">${label}</span>
+              <span class="docs-progress-row-pct">${pct}%</span>
+            </div>
+            <div class="docs-progress-bar"><div class="docs-progress-bar-fill" style="width:${pct}%"></div></div>
+            <div class="docs-progress-row-count">${present} / ${total} chapitre${total > 1 ? 's' : ''}</div>
+          </div>
+        `;
+      }
+
+      function renderPanel() {
+        const { categories, total, complets } = computeProgress();
+        let html = '';
+        Object.keys(categories).forEach(key => {
+          const cat = categories[key];
+          html += renderRow(cat.label, cat.count, total);
+        });
+        html += renderRow('Chapitres complets', complets, total, 'docs-progress-total');
+        listEl.innerHTML = html;
+      }
+
+      function open() {
+        renderPanel();
+        overlay.classList.add('is-open');
+      }
+      function close() {
+        overlay.classList.remove('is-open');
+      }
+
+      button.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+      // Badge de pourcentage discret sur chaque bouton d'accordéon de chapitre
+      function renderChapterBadges() {
+        const chapters = Array.from(document.querySelectorAll('section.chapter')).filter(section => {
+          const numEl = section.querySelector('.chap-num');
+          const num = numEl ? numEl.textContent.trim() : '';
+          return /^\d+$/.test(num);
+        });
+
+        chapters.forEach(section => {
+          const btn = section.querySelector('.chap-btn');
+          const arr = section.querySelector('.chap-arr');
+          if (!btn || !arr) return;
+
+          const coursOk = hasLink(section.querySelector('.cours-main-link')?.getAttribute('href'));
+          const exerciceOk = hasLink(section.querySelector('.exg-main-link')?.getAttribute('href'));
+          const evalOk = hasLink(section.querySelector('.eval-main-link')?.getAttribute('href'));
+          const correctionOk = hasLink(section.querySelector('.correction-btn')?.getAttribute('href'));
+          const activiteOk = Array.from(section.querySelectorAll('.sequence-linksActG a'))
+            .some(a => hasLink(a.getAttribute('href')));
+
+          const checks = [coursOk, activiteOk, exerciceOk, evalOk, correctionOk];
+          const present = checks.filter(Boolean).length;
+          const pct = Math.round((present / checks.length) * 100);
+
+          let badge = btn.querySelector('.chap-fill-pct');
+          if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'chap-fill-pct';
+            btn.insertBefore(badge, arr);
+          }
+          badge.textContent = pct + '%';
+          badge.title = `Remplissage du chapitre : ${present} / ${checks.length}`;
+        });
+      }
+
+      renderChapterBadges();
+    })();
 
   });
 
